@@ -68,7 +68,9 @@ export class AppDevtoolsComponent implements OnInit {
   registerSubscribe() {
     this.AppBroadcaster.on('selectedObject').subscribe(objectLink => {
       this.activeWelcome = false;
-      if (typeof(objectLink) === 'string') {
+      if (typeof(objectLink) === 'string' && objectLink === 'ian') {
+        this.browserObject = this.dataService.data;
+      } else if (typeof(objectLink) === 'string') {
         this.browserObject = this.dataService.data.ian[objectLink];
       } else {
         this.browserObject = undefined;

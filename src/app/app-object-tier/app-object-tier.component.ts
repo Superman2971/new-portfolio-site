@@ -12,7 +12,7 @@ export class AppObjectTierComponent {
   constructor(private AppBroadcaster:AppBroadcaster) {}
 
   selectProperty(key, value) {
-    if (key !== 'ian') {
+    if (value.ig_description) {
       let sendObject = {
         key: key,
         value: value

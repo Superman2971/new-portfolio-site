@@ -10,10 +10,9 @@
     <svg class="drop-arrow" [class.open]="tier[property].ig_opened">
       <path d="M8.016 5.016l10.969 6.984-10.969 6.984v-13.969z"></path>
     </svg>
-    <div class="purple" [innerHtml]="tier[property].ig_name" [class.window]="tier[property].ig_name === 'Window'"></div>
+    <div class="purple" [innerHtml]="tier[property].ig_name"></div>
     <span>:&nbsp;</span>
     <div [innerHtml]="tier[property].ig_display"></div>
-    <!-- need styles for nothing, array, function, function with params, object, 'Object' -->
   </div>
   <!-- open new dropdown tier -->
   <app-object-tier *ngIf="tier[property].ig_opened" [tier]="tier[property]"></app-object-tier>

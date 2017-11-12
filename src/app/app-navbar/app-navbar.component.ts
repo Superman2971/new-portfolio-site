@@ -23,6 +23,6 @@ export class AppNavbarComponent {
   }
 
   resetHomepage() {
-    this.AppBroadcaster.fire('selectedObject', false);
+    this.AppBroadcaster.fire('selectedObject', 'ian');
   }
 }

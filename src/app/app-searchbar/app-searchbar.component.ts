@@ -9,20 +9,21 @@ import { AppBroadcaster } from '../services/app-broadcaster.service';
 export class AppSearchbarComponent {
   @Input() navbar;
   objects = [{
-    text: 'Window',
+    text: 'About Me',
     progress: 'in progress',
-    link: 'window'
+    link: 'about'
   }, {
     text: 'Resume',
     progress: 'last updated XX/XX/17',
     link: 'resume'
   }, {
     text: 'Projects',
-    progress: 'some samples',
+    progress: 'some recent samples',
     link: 'projects'
   }, {
-    text: 'Something Else',
-    progress: 'not sure what'
+    text: 'Contact',
+    progress: 'get in touch',
+    link: 'contact'
   }];
   searchText: string;
   placeholder: string;
