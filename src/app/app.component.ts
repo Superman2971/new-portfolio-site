@@ -7,10 +7,10 @@ import { AppBroadcaster } from './services/app-broadcaster.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  propertyDetails:any;
-  showDetails:boolean;
+  propertyDetails: any;
+  showDetails: boolean;
 
-  constructor(private AppBroadcaster:AppBroadcaster) {
+  constructor(private AppBroadcaster: AppBroadcaster) {
     this.registerSubscribe();
   }
 

@@ -7,12 +7,12 @@ import { AppBroadcaster } from '../services/app-broadcaster.service';
   styleUrls: ['./app-homepage.component.scss']
 })
 export class AppHomepageComponent {
-  propertyName:any;
-  propertyDetails:any;
+  propertyName: any;
+  propertyDetails: any;
   height = 256;
-  @Input() set details(details:any) {
+  @Input() set details(details: any) {
     if (details) {
-      this.propertyName = details.key
+      this.propertyName = details.key;
       this.propertyDetails = details.value;
     } else {
       this.propertyName = false;

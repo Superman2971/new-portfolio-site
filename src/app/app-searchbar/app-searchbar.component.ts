@@ -25,17 +25,18 @@ export class AppSearchbarComponent {
     text: 'input event',
     progress: 'last updated n/ev/er'
   }];
-  searchText:string;
-  placeholder:string;
+  searchText: string;
+  placeholder: string;
   showDropdown = false;
 
   constructor(
     public elem: ElementRef,
     private renderer: Renderer2,
-    private AppBroadcaster:AppBroadcaster
+    private AppBroadcaster: AppBroadcaster
   ) {
     renderer.listen('document', 'click', (event: any) => {
-      if (this.showDropdown && event.target && this.elem.nativeElement !== event.target && !this.elem.nativeElement.contains(event.target)) {
+      if (this.showDropdown && event.target && this.elem.nativeElement !== event.target &&
+      !this.elem.nativeElement.contains(event.target)) {
         this.showDropdown = false;
       }
     });

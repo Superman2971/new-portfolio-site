@@ -1,4 +1,4 @@
-import { Component, ElementRef, Renderer2 } from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { AppBroadcaster } from '../services/app-broadcaster.service';
 import { WindowRef } from '../services/app-window-ref.service';
@@ -9,7 +9,7 @@ import { DataService } from '../services/app-data.service';
   templateUrl: './app-devtools.component.html',
   styleUrls: ['./app-devtools.component.scss']
 })
-export class AppDevtoolsComponent {
+export class AppDevtoolsComponent implements OnInit {
   mousemoveListener: () => void;
   mouseupListener: () => void;
   filterType = 'All';
@@ -19,6 +19,12 @@ export class AppDevtoolsComponent {
   yStart = 0;
   notSetYet = true;
   top = 312;
+  welcome = [''];
+  welcomeText = [
+    'Welcome to Ian Goldfarb.co',
+    'You can access some details about me here',
+    'window.IanGoldfarb()'
+  ];
 
   constructor(
     private winRef: WindowRef,
@@ -30,6 +36,32 @@ export class AppDevtoolsComponent {
     console.log(winRef.window);
     this.height = winRef.window.innerHeight - 368;
     this.registerSubscribe();
+  }
+
+  ngOnInit() {
+    this.writeLine(0);
+  }
+
+  writeLine(index) {
+    if (index < this.welcomeText.length) {
+      this.typeWriter(0, this.welcomeText[index], 100, index);
+    } else {
+      this.AppBroadcaster.fire('selectedObject', 'window');
+    }
+  }
+
+  typeWriter(index, text, speed, line) {
+    if (index < text.length) {
+      this.welcome[line] += text.charAt(index);
+      index++;
+      setTimeout(() => {
+        this.typeWriter(index, text, speed, line)
+      }, speed);
+    } else {
+      line++;
+      this.welcome[line] = '';
+      this.writeLine(line);
+    }
   }
 
   registerSubscribe() {
@@ -54,7 +86,7 @@ export class AppDevtoolsComponent {
         this.notSetYet = false;
       }
       this.height = this.winRef.window.innerHeight - 468 - (event.clientY - this.yStart);
-      this.top = 412 - (this.yStart - event.clientY);
+      this.top = 312 - (this.yStart - event.clientY);
       this.AppBroadcaster.fire('heightChange', this.top);
     });
     this.mouseupListener = this.renderer.listen('body', 'mouseup', () => {

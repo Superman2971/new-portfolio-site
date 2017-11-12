@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class AppObjectPropertyComponent implements OnInit {
   @Input() property;
 
-  propertyType:any;
+  propertyType: any;
 
   ngOnInit() {
     this.propertyType = typeof(this.property);
