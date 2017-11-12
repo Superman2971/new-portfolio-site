@@ -75,7 +75,6 @@ export class AppDevtoolsComponent implements OnInit {
       } else {
         this.browserObject = undefined;
       }
-      console.log(this.browserObject);
     });
   }
 
@@ -84,26 +83,32 @@ export class AppDevtoolsComponent implements OnInit {
   }
 
   changeHeightStart() {
-    this.mousemoveListener = this.renderer.listen('body', 'mousemove', (event: MouseEvent) => {
-      if (this.notSetYet) {
-        this.yStart = event.clientY;
-        this.notSetYet = false;
-      }
-      this.height = this.winRef.window.innerHeight - 368 - (event.clientY - this.yStart);
-      this.top = 312 - (this.yStart - event.clientY);
-      this.AppBroadcaster.fire('heightChange', this.top);
-    });
-    this.mouseupListener = this.renderer.listen('body', 'mouseup', () => {
-      this.changeHeightStop();
-    });
+    if (!this.mousemoveListener) {
+      this.mousemoveListener = this.renderer.listen('body', 'mousemove', (event: MouseEvent) => {
+        if (this.notSetYet) {
+          this.yStart = event.clientY;
+          this.notSetYet = false;
+        }
+        this.height = this.winRef.window.innerHeight - 368 - (event.clientY - this.yStart);
+        this.top = 312 - (this.yStart - event.clientY);
+        this.AppBroadcaster.fire('heightChange', this.top);
+      });
+    }
+    if (!this.mouseupListener) {
+      this.mouseupListener = this.renderer.listen('body', 'mouseup', () => {
+        this.changeHeightStop();
+      });
+    }
   }
 
   changeHeightStop() {
     if (this.mousemoveListener) {
       this.mousemoveListener();
+      this.mousemoveListener = undefined;
     }
     if (this.mouseupListener) {
       this.mouseupListener();
+      this.mouseupListener = undefined;
     }
   }
 }
