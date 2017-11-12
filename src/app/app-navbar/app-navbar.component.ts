@@ -11,7 +11,7 @@ export class AppNavbarComponent {
   showAbout = false;
   notInAbout = true;
 
-  constructor(private AppBroadcaster: AppBroadcaster) {}
+  constructor(private AppBroadcaster:AppBroadcaster) {}
 
   closeAbout() {
     this.notInAbout = true;

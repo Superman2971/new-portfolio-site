@@ -2,13 +2,95 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>NewPortfolioSite</title>
+  <title>BrowserObjects</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=NTR" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet">
 </head>
 <body>
-  <app-root>Loading...</app-root>
+  <app-root>
+    <style>
+      .loading {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        justify-content: center;
+        width: 100vw;
+      }
+
+      .load-text {
+        color: rgba(0, 0, 0, 0.54);
+        font-size: 24px;
+      }
+
+      .wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px
+      }
+
+      .ball {
+        width: 22px;
+        height: 22px;
+        border-radius: 11px;
+        display: inline-block;
+        margin: 0 10px;
+        animation: 1.5s bounce ease infinite;
+      }
+
+      .blue {
+        background-color: #4285F5;
+      }
+
+      .red {
+        background-color: #EA4436;
+        animation-delay: .25s;
+      }
+
+      .yellow {
+        background-color: #FBBD06;
+        animation-delay: .5s;
+      }
+
+      .green {
+        background-color: #34A952;
+        animation-delay: .75s;
+      }
+
+      @keyframes bounce {
+        50% {
+          transform: translateY(25px);
+        }
+      }
+    </style>
+    <div class="loading">
+      <div class="load-text">Loading...</div>
+      <div class="wrapper">
+        <div class="blue ball"></div>
+        <div class="red ball"></div>
+        <div class="yellow ball"></div>
+        <div class="green ball"></div>
+      </div>
+    </div>
+  </app-root>
+  <!-- <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+          // Registration was successful
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+          // registration failed :(
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+  </script> -->
 </body>
 </html>

@@ -1,64 +1,45 @@
-import { Component, Renderer, OnInit } from '@angular/core';
+import { Component, ElementRef, Renderer2 } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import { AppBroadcaster } from '../services/app-broadcaster.service';
 import { WindowRef } from '../services/app-window-ref.service';
+import { DataService } from '../services/app-data.service';
 
 @Component({
   selector: 'app-devtools',
   templateUrl: './app-devtools.component.html',
   styleUrls: ['./app-devtools.component.scss']
 })
-export class AppDevtoolsComponent implements OnInit {
-  mousemoveListener;
-  mouseupListener;
+export class AppDevtoolsComponent {
+  mousemoveListener: () => void;
+  mouseupListener: () => void;
   filterType = 'All';
   types = ['All', 'Properties', 'Functions', 'Objects'];
+  browserObject: Observable<any[]>;
   height: number;
   yStart = 0;
   notSetYet = true;
   top = 312;
-  text = [''];
-  textToUse = [
-    'This will be the first line of information',
-    'Then we will write  a second line',
-    'final test for third'
-  ];
 
   constructor(
     private winRef: WindowRef,
     private AppBroadcaster: AppBroadcaster,
-    private renderer: Renderer
+    private elem: ElementRef,
+    private renderer: Renderer2,
+    private dataService: DataService
   ) {
+    console.log(winRef.window);
     this.height = winRef.window.innerHeight - 368;
     this.registerSubscribe();
-  }
-
-  ngOnInit() {
-    this.writeLine(0);
-  }
-
-  writeLine(index) {
-    if (index < this.textToUse.length) {
-      this.typeWriter(0, this.textToUse[index], 100, index);
-    }
-  }
-
-  typeWriter(index, text, speed, line) {
-    if (index < text.length) {
-      this.text[line] += text.charAt(index);
-      index++;
-      setTimeout(() => {
-        this.typeWriter(index, text, speed, line)
-      }, speed);
-    } else {
-      line++;
-      this.text[line] = '';
-      this.writeLine(line);
-    }
   }
 
   registerSubscribe() {
     this.AppBroadcaster.on('selectedObject').subscribe(objectLink => {
       console.log(objectLink);
+      if (typeof(objectLink) === 'string') {
+        this.browserObject = this.dataService[objectLink];
+      } else {
+        this.browserObject = undefined;
+      }
     });
   }
 
@@ -67,16 +48,16 @@ export class AppDevtoolsComponent implements OnInit {
   }
 
   changeHeightStart() {
-    this.mousemoveListener = this.renderer.listenGlobal('body', 'mousemove', (event: MouseEvent) => {
+    this.mousemoveListener = this.renderer.listen('body', 'mousemove', (event: MouseEvent) => {
       if (this.notSetYet) {
         this.yStart = event.clientY;
         this.notSetYet = false;
       }
       this.height = this.winRef.window.innerHeight - 468 - (event.clientY - this.yStart);
-      this.top = 312 - (this.yStart - event.clientY);
+      this.top = 412 - (this.yStart - event.clientY);
       this.AppBroadcaster.fire('heightChange', this.top);
     });
-    this.mouseupListener = this.renderer.listenGlobal('body', 'mouseup', () => {
+    this.mouseupListener = this.renderer.listen('body', 'mouseup', () => {
       this.changeHeightStop();
     });
   }
@@ -86,7 +67,7 @@ export class AppDevtoolsComponent implements OnInit {
       this.mousemoveListener();
     }
     if (this.mouseupListener) {
-      this.mouseupListener()
+      this.mouseupListener();
     }
   }
 }

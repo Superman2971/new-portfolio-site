@@ -1,5 +1,5 @@
 .searchbar {
-  width: 100%;
+  margin-bottom: 56px;
 
   &.navbar {
     @media (max-width: 1060px) {
@@ -16,7 +16,7 @@
       display: none;
     }
   }
-
+  
   input {
     border-radius: 1px;
     border: 1px solid rgba(0,0,0,0.12);

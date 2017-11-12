@@ -1,0 +1,24 @@
+.object-property {
+  margin-left: 4px;
+  position: relative;
+
+  .string {
+    color: #ea4335;
+
+    span {
+      color: rgba(0, 0, 0, 0.87);
+    }
+  }
+
+  .null {
+    color: rgba(0, 0, 0, 0.54);
+  }
+
+  .boolean {
+    color: #d067d3;
+  }
+
+  .number {
+    color: #4285f4;
+  }
+}

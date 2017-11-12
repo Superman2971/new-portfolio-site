@@ -1,4 +1,21 @@
-<div class="navbar row">
+<div class="navbar row" [class.details]="details">
+  <div *ngIf="details" class="searchbar row">
+    <div class="logo row center" (click)="resetHomepage()">
+      <span [style.color]="'#4285f4'">I</span>
+      <span [style.color]="'#ea4335'">a</span>
+      <span [style.color]="'#4eb46a'">n</span>
+      &nbsp;
+      <span [style.color]="'#fbbc05'">G</span>
+      <span [style.color]="'#4285f4'">o</span>
+      <span [style.color]="'#ea4335'">l</span>
+      <span [style.color]="'#4eb46a'">d</span>
+      <span [style.color]="'#4285f4'">f</span>
+      <span [style.color]="'#ea4335'">a</span>
+      <span [style.color]="'#fbbc05'">r</span>
+      <span [style.color]="'#4eb46a'">b</span>
+    </div>
+    <app-searchbar [navbar]="'true'"></app-searchbar>
+  </div>
   <a (click)="resetHomepage()">Homepage</a>
   <a target="_blank" href="https://github.com/Superman2971/browser-objects">Github</a>
   <div class="image-container" (mouseenter)="showAbout = true; notInAbout = false" (mouseleave)="closeAbout()">

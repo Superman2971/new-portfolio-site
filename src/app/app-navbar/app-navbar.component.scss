@@ -4,6 +4,36 @@
   justify-content: flex-end;
   width: 100%;
 
+  &.details {
+    background-color: #fafafa;
+    border-bottom: 1px solid #ebebeb;
+
+    .searchbar {
+      left: 16px;
+      height: 44px;
+      position: absolute;
+      top: 6px;
+
+      .logo {
+        cursor: pointer;
+        font-family: 'NTR', sans-serif;
+        font-size: 40px;
+        margin-right: 16px;
+        overflow: hidden;
+      }
+    }
+
+    @media (max-width: 456px) {
+      a {
+        display: none;
+      }
+
+      .image-container {
+        display: none;
+      }
+    }
+  }
+
   a {
     color: rgba(0, 0, 0, 54);
     cursor: pointer;

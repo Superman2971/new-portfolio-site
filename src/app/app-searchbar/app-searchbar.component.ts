@@ -1,4 +1,4 @@
-import { Component, HostListener, ElementRef, Input } from '@angular/core';
+import { Component, ElementRef, Renderer2, Input } from '@angular/core';
 import { AppBroadcaster } from '../services/app-broadcaster.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class AppSearchbarComponent {
   objects = [{
     text: 'window',
     progress: 'in progress',
-    link: '/window'
+    link: 'window'
   }, {
     text: 'document',
     progress: 'coming soon'
@@ -25,22 +25,20 @@ export class AppSearchbarComponent {
     text: 'input event',
     progress: 'last updated n/ev/er'
   }];
-  searchText: string;
-  placeholder: string;
+  searchText:string;
+  placeholder:string;
   showDropdown = false;
 
   constructor(
     public elem: ElementRef,
-    private AppBroadcaster: AppBroadcaster
-  ) {}
-
-  @HostListener('document:click', ['$event'])
-  clickEvent(event) {
-    if (this.showDropdown && event.target &&
-    this.elem.nativeElement !== event.target &&
-    !this.elem.nativeElement.contains(event.target)) {
-      this.showDropdown = false;
-    }
+    private renderer: Renderer2,
+    private AppBroadcaster:AppBroadcaster
+  ) {
+    renderer.listen('document', 'click', (event: any) => {
+      if (this.showDropdown && event.target && this.elem.nativeElement !== event.target && !this.elem.nativeElement.contains(event.target)) {
+        this.showDropdown = false;
+      }
+    });
   }
 
   selectOption = option => {

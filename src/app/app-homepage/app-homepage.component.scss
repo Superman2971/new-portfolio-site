@@ -1,5 +1,13 @@
 .homepage {
-  position: relative;
+  // height: 356px;
+
+  // @media (max-width: 600px) {
+  //   height: 272px;
+  // }
+
+  &.details {
+    overflow: scroll;
+  }
 
   .logo {
     font-family: 'NTR', sans-serif;
@@ -11,6 +19,71 @@
       font-size: 48px;
       height: 40px;
       margin: 16px 8px;
+    }
+  }
+
+  .details-page {
+    padding: 16px 16px 16px 284px;
+
+    @media (max-width: 1060px) {
+      padding: 16px;
+    }
+
+    .results {
+      color: #808080;
+      font-size: 14px;
+    }
+
+    .header {
+      color: #1a0dab;
+      font-size: 18px;
+      padding-top: 16px;
+    }
+
+    .content {
+      color: #545454;
+      font-size: 12px;
+      line-height: 1.4;
+      padding-bottom: 16px;
+      word-wrap: break-word;
+    }
+
+    .table {
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 2px;
+      margin: 16px 0 16px -12px;
+      padding: 12px;
+
+      @media (max-width: 1060px) {
+        margin: 16px 0;
+      }
+
+      .header {
+        padding: 0;
+      }
+
+      .row1 {
+        color: rgba(0, 0, 0, 0.54);
+
+        div {
+          display: flex;
+          flex: 1;
+          justify-content: center;
+          padding: 8px;
+        }
+      }
+
+      .row2 {
+        color: rgba(0, 0, 0, 0.24);
+        font-size: 12px;
+
+        div {
+          display: flex;
+          flex: 1;
+          justify-content: center;
+          padding: 8px;
+        }
+      }
     }
   }
 }
