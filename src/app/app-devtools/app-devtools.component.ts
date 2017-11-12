@@ -37,16 +37,16 @@ export class AppDevtoolsComponent {
   }
 
   changeHeightStart() {
-    this.mousemoveListener = this.renderer.listen('body', 'mousemove', (event: MouseEvent) => {
+    this.mousemoveListener = this.renderer.listenGlobal('body', 'mousemove', (event: MouseEvent) => {
       if (this.notSetYet) {
         this.yStart = event.clientY;
         this.notSetYet = false;
       }
       this.height = this.winRef.window.innerHeight - 468 - (event.clientY - this.yStart);
-      this.top = 412 - (this.yStart - event.clientY);
+      this.top = 312 - (this.yStart - event.clientY);
       this.AppBroadcaster.fire('heightChange', this.top);
     });
-    this.mouseupListener = this.renderer.listen('body', 'mouseup', () => {
+    this.mouseupListener = this.renderer.listenGlobal('body', 'mouseup', () => {
       this.changeHeightStop();
     });
   }

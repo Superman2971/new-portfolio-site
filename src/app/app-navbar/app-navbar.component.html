@@ -1,24 +1,4 @@
-<div class="navbar row" [class.details]="details">
-  <div class="searchbar row">
-    <div class="logo row center" (click)="resetHomepage()">
-      <span [style.color]="'#4285f4'">B</span>
-      <span [style.color]="'#ea4335'">r</span>
-      <span [style.color]="'#fbbc05'">o</span>
-      <span [style.color]="'#4eb46a'">w</span>
-      <span [style.color]="'#4285f4'">s</span>
-      <span [style.color]="'#ea4335'">e</span>
-      <span [style.color]="'#4eb46a'">r</span>
-      &nbsp;
-      <span [style.color]="'#4285f4'">O</span>
-      <span [style.color]="'#ea4335'">b</span>
-      <span [style.color]="'#fbbc05'">j</span>
-      <span [style.color]="'#4eb46a'">e</span>
-      <span [style.color]="'#4285f4'">c</span>
-      <span [style.color]="'#ea4335'">t</span>
-      <span [style.color]="'#4eb46a'">s</span>
-    </div>
-    <app-searchbar [navbar]="'true'"></app-searchbar>
-  </div>
+<div class="navbar row">
   <a (click)="resetHomepage()">Homepage</a>
   <a target="_blank" href="https://github.com/Superman2971/browser-objects">Github</a>
   <div class="image-container" (mouseenter)="showAbout = true; notInAbout = false" (mouseleave)="closeAbout()">

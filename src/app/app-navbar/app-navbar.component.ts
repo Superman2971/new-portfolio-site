@@ -7,8 +7,7 @@ import { AppBroadcaster } from '../services/app-broadcaster.service';
   styleUrls: ['./app-navbar.component.scss']
 })
 export class AppNavbarComponent {
-  // @Input() details;
-  details = true;
+  @Input() details;
   showAbout = false;
   notInAbout = true;
 

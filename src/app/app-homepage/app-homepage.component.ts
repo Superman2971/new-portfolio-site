@@ -7,18 +7,7 @@ import { AppBroadcaster } from '../services/app-broadcaster.service';
   styleUrls: ['./app-homepage.component.scss']
 })
 export class AppHomepageComponent {
-  propertyName: any = 'some key';
-  propertyDetails: any = 'some value';
   height = 256;
-  // @Input() set details(details: any) {
-  //   if (details) {
-  //     this.propertyName = details.key;
-  //     this.propertyDetails = details.value;
-  //   } else {
-  //     this.propertyName = false;
-  //     this.propertyDetails = false;
-  //   }
-  // }
 
   constructor(private AppBroadcaster: AppBroadcaster) {
     this.registerSubscribe();

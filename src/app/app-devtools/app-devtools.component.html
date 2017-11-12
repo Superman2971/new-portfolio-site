@@ -1,5 +1,5 @@
 <div class="devtools" [style.top]="top + 'px'">
-  <div class="tabs row" (mousedown)="changeHeightStart()" (mouseup)="changeHeightStop()">
+  <div class="tabs row" (mousedown)="changeHeightStart()" (mouseup)="changeHeightStop()" (click)="changeHeightStop()">
     <div class="tab">Console</div>
     <svg class="close">
       <path d="M18.984 6.422l-5.578 5.578 5.578 5.578-1.406 1.406-5.578-5.578-5.578 5.578-1.406-1.406 5.578-5.578-5.578-5.578 1.406-1.406 5.578 5.578 5.578-5.578z"></path>
@@ -13,9 +13,9 @@
       <select class="select-filter" (change)="changeFilterType($event.target.value)">
         <option *ngFor="let type of types" value="{{type}}">{{type}}</option>
       </select>
-      <!-- <svg class="select-arrow" [class.open]="showBrowserObject">
+      <svg class="select-arrow">
         <path d="M8.016 5.016l10.969 6.984-10.969 6.984v-13.969z"></path>
-      </svg> -->
+      </svg>
     </div>
     <div class="input-container">
       <input #filter type="text" placeholder="Filter"/>
@@ -29,11 +29,5 @@
       <path d="M8.578 16.359l4.594-4.594-4.594-4.594 1.406-1.406 6 6-6 6z"></path>
     </svg>
     <div *ngIf="!browserObject" class="welcome">Welcome to Browser Object!</div>
-    <!-- <app-object-tier [tier]="browserObject | async"></app-object-tier> -->
-    <!-- USE THIS TO TEST NEW FILTERS FOR THE FILTERS -->
-    <!-- <div>
-      <div>TESTING SECTION HERE</div>
-      <div>{{browserObject | async | json}}</div>
-    </div> -->
   </div>
 </div>
