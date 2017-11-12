@@ -1,4 +1,4 @@
-import { Component, Renderer } from '@angular/core';
+import { Component, Renderer, OnInit } from '@angular/core';
 import { AppBroadcaster } from '../services/app-broadcaster.service';
 import { WindowRef } from '../services/app-window-ref.service';
 
@@ -7,7 +7,7 @@ import { WindowRef } from '../services/app-window-ref.service';
   templateUrl: './app-devtools.component.html',
   styleUrls: ['./app-devtools.component.scss']
 })
-export class AppDevtoolsComponent {
+export class AppDevtoolsComponent implements OnInit {
   mousemoveListener;
   mouseupListener;
   filterType = 'All';
@@ -16,6 +16,12 @@ export class AppDevtoolsComponent {
   yStart = 0;
   notSetYet = true;
   top = 312;
+  text = [''];
+  textToUse = [
+    'This will be the first line of information',
+    'Then we will write  a second line',
+    'final test for third'
+  ];
 
   constructor(
     private winRef: WindowRef,
@@ -24,6 +30,30 @@ export class AppDevtoolsComponent {
   ) {
     this.height = winRef.window.innerHeight - 368;
     this.registerSubscribe();
+  }
+
+  ngOnInit() {
+    this.writeLine(0);
+  }
+
+  writeLine(index) {
+    if (index < this.textToUse.length) {
+      this.typeWriter(0, this.textToUse[index], 100, index);
+    }
+  }
+
+  typeWriter(index, text, speed, line) {
+    if (index < text.length) {
+      this.text[line] += text.charAt(index);
+      index++;
+      setTimeout(() => {
+        this.typeWriter(index, text, speed, line)
+      }, speed);
+    } else {
+      line++;
+      this.text[line] = '';
+      this.writeLine(line);
+    }
   }
 
   registerSubscribe() {
