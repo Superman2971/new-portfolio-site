@@ -12,9 +12,10 @@ import { DataService } from '../services/app-data.service';
 export class AppDevtoolsComponent implements OnInit {
   mousemoveListener: () => void;
   mouseupListener: () => void;
+  activeWelcome = true;
   filterType = 'All';
   types = ['All', 'Properties', 'Functions', 'Objects'];
-  browserObject: Observable<any[]>;
+  browserObject;
   height: number;
   yStart = 0;
   notSetYet = true;
@@ -22,7 +23,7 @@ export class AppDevtoolsComponent implements OnInit {
   welcome = [''];
   welcomeText = [
     'Welcome to Ian Goldfarb.co',
-    'You can access some details about me here',
+    'You can access some details about me here:',
     'window.IanGoldfarb()'
   ];
 
@@ -33,7 +34,6 @@ export class AppDevtoolsComponent implements OnInit {
     private renderer: Renderer2,
     private dataService: DataService
   ) {
-    console.log(winRef.window);
     this.height = winRef.window.innerHeight - 368;
     this.registerSubscribe();
   }
@@ -45,8 +45,9 @@ export class AppDevtoolsComponent implements OnInit {
   writeLine(index) {
     if (index < this.welcomeText.length) {
       this.typeWriter(0, this.welcomeText[index], 100, index);
-    } else {
-      this.AppBroadcaster.fire('selectedObject', 'window');
+    } else if (this.activeWelcome) {
+      this.browserObject = this.dataService.data;
+      console.log(this.browserObject);
     }
   }
 
@@ -66,12 +67,13 @@ export class AppDevtoolsComponent implements OnInit {
 
   registerSubscribe() {
     this.AppBroadcaster.on('selectedObject').subscribe(objectLink => {
-      console.log(objectLink);
+      this.activeWelcome = false;
       if (typeof(objectLink) === 'string') {
-        this.browserObject = this.dataService[objectLink];
+        this.browserObject = this.dataService.data.ian[objectLink];
       } else {
         this.browserObject = undefined;
       }
+      console.log(this.browserObject);
     });
   }
 
@@ -85,7 +87,7 @@ export class AppDevtoolsComponent implements OnInit {
         this.yStart = event.clientY;
         this.notSetYet = false;
       }
-      this.height = this.winRef.window.innerHeight - 468 - (event.clientY - this.yStart);
+      this.height = this.winRef.window.innerHeight - 368 - (event.clientY - this.yStart);
       this.top = 312 - (this.yStart - event.clientY);
       this.AppBroadcaster.fire('heightChange', this.top);
     });

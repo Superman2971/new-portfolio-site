@@ -10,7 +10,6 @@ import { AppHomepageComponent } from './app-homepage/app-homepage.component';
 import { AppNavbarComponent } from './app-navbar/app-navbar.component';
 import { AppDevtoolsComponent } from './app-devtools/app-devtools.component';
 import { AppObjectTierComponent } from './app-object-tier/app-object-tier.component';
-import { AppObjectPropertyComponent } from './app-object-property/app-object-property.component';
 import { AppSearchbarComponent } from './app-searchbar/app-searchbar.component';
 // Services
 import { AppBroadcaster } from './services/app-broadcaster.service';
@@ -35,7 +34,6 @@ const appRoutes: Routes = [{
     AppNavbarComponent,
     AppDevtoolsComponent,
     AppObjectTierComponent,
-    AppObjectPropertyComponent,
     AppSearchbarComponent,
     FilterPipe,
     PropertiesPipe

@@ -1,21 +1,20 @@
 <div class="object-tier" *ngFor="let property of tier | properties">
   <!-- row for property -->
-  <div *ngIf="tier[property].bo_name && tier[property].bo_propertyType === 'property'" class="row" (click)="selectProperty(property, tier[property])">
-    <div class="purple" [innerHtml]="tier[property].bo_name"></div>
+  <div *ngIf="tier[property].ig_name && tier[property].ig_propertyType === 'property'" class="row" (click)="selectProperty(property, tier[property])">
+    <div class="purple" [innerHtml]="tier[property].ig_name"></div>
     <span>:&nbsp;</span>
-    <div [innerHtml]="tier[property].bo_display"></div>
-    <!-- <app-object-property [property]="tier[property]"></app-object-property> -->
+    <div [innerHtml]="tier[property].ig_display"></div>
   </div>
   <!-- row for dropdown -->
-  <div *ngIf="tier[property].bo_name && tier[property].bo_propertyType !== 'property'" class="drop row" (click)="selectProperty(property, tier[property]); tier[property].bo_opened = !tier[property].bo_opened">
-    <svg class="drop-arrow" [class.open]="tier[property].bo_opened">
+  <div *ngIf="tier[property].ig_name && tier[property].ig_propertyType !== 'property'" class="drop row" (click)="selectProperty(property, tier[property]); tier[property].ig_opened = !tier[property].ig_opened">
+    <svg class="drop-arrow" [class.open]="tier[property].ig_opened">
       <path d="M8.016 5.016l10.969 6.984-10.969 6.984v-13.969z"></path>
     </svg>
-    <div class="purple" [innerHtml]="tier[property].bo_name" [class.window]="tier[property].bo_name === 'Window'"></div>
+    <div class="purple" [innerHtml]="tier[property].ig_name" [class.window]="tier[property].ig_name === 'Window'"></div>
     <span>:&nbsp;</span>
-    <div [innerHtml]="tier[property].bo_display"></div>
+    <div [innerHtml]="tier[property].ig_display"></div>
     <!-- need styles for nothing, array, function, function with params, object, 'Object' -->
   </div>
   <!-- open new dropdown tier -->
-  <app-object-tier *ngIf="tier[property].bo_opened" [tier]="tier[property]"></app-object-tier>
+  <app-object-tier *ngIf="tier[property].ig_opened" [tier]="tier[property]"></app-object-tier>
 </div>

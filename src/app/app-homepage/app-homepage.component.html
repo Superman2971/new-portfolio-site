@@ -17,15 +17,15 @@
     <app-searchbar></app-searchbar>
   </div>
   <div *ngIf="propertyDetails" class="details-page">
-    <div class="results">results found for {{propertyDetails.bo_name}}</div>
-    <div *ngIf="!propertyDetails.bo_description">
+    <div class="results">results found for {{propertyDetails.ig_name}}</div>
+    <div *ngIf="!propertyDetails.ig_description">
       <div class="header">NEED TO ADD DESCRIPTION AND OTHER DATA</div>
     </div>
-    <div *ngIf="propertyDetails.bo_description">
+    <div *ngIf="propertyDetails.ig_description">
       <div class="header">Definition and Usage</div>
-      <div class="content" [innerHtml]="propertyDetails.bo_description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</div>
+      <div class="content" [innerHtml]="propertyDetails.ig_description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</div>
     </div>
-    <div *ngIf="propertyDetails.bo_coverage" class="table">
+    <div *ngIf="propertyDetails.ig_coverage" class="table">
       <div class="header">Browser Support</div>
       <div class="row1 row">
         <div>Method</div>
@@ -44,30 +44,30 @@
         <div>Yes</div>
       </div>
     </div>
-    <div *ngIf="propertyDetails.bo_parameters && propertyDetails.bo_parameters.length > 0">
-      <div *ngFor="let param of propertyDetails.bo_parameters">
+    <div *ngIf="propertyDetails.ig_parameters && propertyDetails.ig_parameters.length > 0">
+      <div *ngFor="let param of propertyDetails.ig_parameters">
         <div class="header">Parameter {{param.name}}&nbsp;<span *ngIf="param.type">({{param.type}})</span></div>
         <div class="content" [innerHtml]="param.description">if it has these, then need to describe each (parameter name, type, description)</div>
       </div>
     </div>
-    <div *ngIf="propertyDetails.bo_methods">
-      <div *ngFor="let method of propertyDetails.bo_methods">
+    <div *ngIf="propertyDetails.ig_methods">
+      <div *ngFor="let method of propertyDetails.ig_methods">
         <div class="header">Object Method {{method.name}}</div>
         <div class="content">if it has these, then need to describe each (parameter name, type, description)</div>
       </div>
     </div>
-    <div *ngIf="propertyDetails.bo_examples">
+    <div *ngIf="propertyDetails.ig_examples">
       <div class="header">Examples</div>
       <div class="content">maybe a code sample or maybe a description of things you could use this with</div>
     </div>
-    <div *ngIf="propertyDetails.bo_notes">
+    <div *ngIf="propertyDetails.ig_notes">
       <div class="header">Additional Notes</div>
-      <div class="content" [innerHtml]="propertyDetails.bo_notes">if it has these, then need to describe each (parameter name, type, description)</div>
+      <div class="content" [innerHtml]="propertyDetails.ig_notes">if it has these, then need to describe each (parameter name, type, description)</div>
     </div>
-    <div *ngIf="propertyDetails.bo_see_also">
+    <div *ngIf="propertyDetails.ig_see_also">
       <div class="header">Also See</div>
       <ul>
-        <li *ngFor="let link of propertyDetails.bo_see_also" [innerHtml]="link"></li>
+        <li *ngFor="let link of propertyDetails.ig_see_also" [innerHtml]="link"></li>
       </ul>
     </div>
   </div>

@@ -12,10 +12,12 @@ export class AppObjectTierComponent {
   constructor(private AppBroadcaster:AppBroadcaster) {}
 
   selectProperty(key, value) {
-    let sendObject = {
-      key: key,
-      value: value
-    };
-    this.AppBroadcaster.fire('propertySelected', sendObject);
+    if (key !== 'ian') {
+      let sendObject = {
+        key: key,
+        value: value
+      };
+      this.AppBroadcaster.fire('propertySelected', sendObject);
+    }
   }
 }

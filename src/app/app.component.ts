@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AppBroadcaster } from './services/app-broadcaster.service';
+import { WindowRef } from './services/app-window-ref.service';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +11,14 @@ export class AppComponent {
   propertyDetails: any;
   showDetails: boolean;
 
-  constructor(private AppBroadcaster: AppBroadcaster) {
+  constructor(
+    private AppBroadcaster: AppBroadcaster,
+    private winRef: WindowRef
+  ) {
     this.registerSubscribe();
+    winRef.window.IanGoldfarb = function() {
+      console.log('Oh I like you, please contact me one on one at goldfarb.ian@gmail.com. I look forward to saying hi :)');
+    };
   }
 
   registerSubscribe() {
