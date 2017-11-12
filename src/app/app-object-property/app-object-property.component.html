@@ -1,0 +1,11 @@
+<div class="object-property">
+  <!-- will need to find and display for: string, boolean, number, null, NaN, {} -->
+  <div *ngIf="propertyType === 'string' && property !== 'null'" class="string">
+    <span>"</span>{{property}}<span>"</span>
+  </div>
+  <div *ngIf="propertyType === 'boolean'" class="boolean">{{property}}</div>
+  <div *ngIf="propertyType === 'number'" class="number">{{property}}</div>
+  <div *ngIf="property === 'null'" class="null">null</div>
+  <div *ngIf="propertyType === 'object'" class="object">{{'{}'}}</div>
+  <div></div>
+</div>

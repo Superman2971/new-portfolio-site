@@ -1,1 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background: rgba(0, 0, 0, 0.12);
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  width: 100vw;
+
+  * {
+    box-sizing: border-box;
+    outline: none;
+  }
+
+  .relative {
+    position: relative;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .pink {
+    color: #d067d3;
+  }
+
+  .null {
+    color: rgba(0, 0, 0, 0.54);
+  }
+
+  .red {
+    color: #ea4335;
+  }
+
+  .blue {
+    color: #4285f4;
+  }
+}

@@ -1,0 +1,76 @@
+.searchbar {
+  margin-bottom: 56px;
+
+  &.navbar {
+    @media (max-width: 1060px) {
+      input {
+        max-width: 300px;
+      }
+
+      .dropdown {
+        max-width: 300px;
+      }
+    }
+
+    @media (max-width: 775px) {
+      display: none;
+    }
+  }
+
+  input {
+    border-radius: 1px;
+    border: 1px solid rgba(0,0,0,0.12);
+    font-size: 24px;
+    height: 44px;
+    padding: 0 48px 0 16px;
+    width: 584px;
+
+    @media (max-width: 600px) {
+      width: 304px;
+    }
+  }
+
+  .search-icon {
+    display: inline-block;
+    fill: #4285f4;
+    height: 44px;
+    position: absolute;
+    right: 0;
+    top: 3px;
+    transform: scale(0.5);
+    width: 44px;
+  }
+
+  .dropdown {
+    background-color: #fff;
+    box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.08);
+    border: none;
+    left: 0;
+    position: absolute;
+    top: 44px;
+    width: 584px;
+    z-index: 2;
+
+    @media (max-width: 600px) {
+      width: 304px;
+    }
+
+    .option {
+      align-items: center;
+      cursor: pointer;
+      display: flex;
+      font-size: 16px;
+      justify-content: space-between;
+      padding: 12px 16px;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.06);
+      }
+
+      .progress {
+        color: #4285f4;
+        font-size: 12px;
+      }
+    }
+  }
+}

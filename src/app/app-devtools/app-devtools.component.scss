@@ -1,0 +1,159 @@
+.devtools {
+  background-color: #fff;
+  // height: calc(100vh - 412px);
+  // height: 100%;
+  position: fixed;
+  left: 0;
+  width: 100vw;
+
+  // @media (max-width: 600px) {
+  //   height: calc(100vh - 328px);
+  // }
+
+  .tabs {
+    background-color: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    border-top: 1px solid rgba(0, 0, 0, 0.24);
+    color: rgba(0, 0, 0, 0.6);
+    height: 28px;
+    position: relative;
+
+    .tab {
+      border-bottom: 1px solid #4285f4;
+      font-size: 12px;
+      height: 100%;
+      padding: 4px 8px;
+      position: relative;
+      top: 1px;
+    }
+
+    .close {
+      fill: rgba(0, 0, 0, 0.54);
+      font-size: 18px;
+      height: 24px;
+      position: absolute;
+      right: 8px;
+      top: 2px;
+      transform: scale(0.75);
+      width: 24px;
+    }
+  }
+
+  .filters {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    height: 28px;
+    padding: 4px 0;
+
+    .clear {
+      border-right: 1px solid rgba(0, 0, 0, 0.12);
+      cursor: pointer;
+      fill: rgba(0,0,0,0.54);
+      height: 20px;
+      padding: 0 12px;
+      width: 44px;
+    }
+
+    .filter-types {
+      border-right: 1px solid rgba(0, 0, 0, 0.12);
+      margin-right: 8px;
+      padding: 4px 8px;
+      position: relative;
+      width: 75px;
+
+      .arrow {
+        fill: rgba(0, 0, 0, 0.54);
+        height: 24px;
+        min-width: 24px;
+        position: absolute;
+        right: 0;
+        top: -2px;
+        transform: scale(0.75) rotate(90deg);
+        width: 24px;
+      }
+    }
+
+    .select-filter {
+      background-color: transparent;
+      border: 0;
+      border-radius: 0;
+      border-right: 1px solid rgba(0, 0, 0, 0.12);
+      color: rgba(0, 0, 0, 0.54);
+      cursor: pointer;
+      font-size: 12px;
+      margin-right: 8px;
+      padding: 4px 8px;
+      position: relative;
+      width: 92px;
+      -webkit-appearance: inherit;
+    }
+
+    .select-arrow {
+      fill: rgba(0, 0, 0, 0.54);
+      height: 24px;
+      min-width: 24px;
+      pointer-events: none;
+      position: absolute;
+      right: 8px;
+      top: -2px;
+      transform: scale(0.75) rotate(90deg);
+      width: 24px;
+    }
+
+    .input-container {
+      position: relative;
+
+      input {
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        height: 100%;
+        min-width: 300px;
+        padding: 0 16px 0 4px;
+
+        @media (max-width: 460px) {
+          min-width: 162px;
+        }
+      }
+
+      .empty {
+        cursor: pointer;
+        fill: rgba(0, 0, 0, 0.54);
+        font-size: 18px;
+        height: 28px;
+        padding: 4px;
+        position: absolute;
+        right: 0;
+        top: -4px;
+        transform: scale(0.75);
+        width: 28px;
+      }
+    }
+  }
+
+  .console {
+    font-family: 'Arimo', sans-serif;
+    font-size: 12px;
+    // height: calc(100vh - 468px);
+    overflow: scroll;
+    padding: 8px 8px 8px 32px;
+    position: relative;
+
+    // @media (max-width: 600px) {
+    //   height: calc(100vh - 384px);
+    // }
+
+    .arrow {
+      fill: #4285f4;
+      height: 24px;
+      left: 4px;
+      position: absolute;
+      top: 6px;
+      transform: scale(0.75);
+      width: 24px;
+    }
+
+    .welcome {
+      padding: 2px 0;
+    }
+  }
+}

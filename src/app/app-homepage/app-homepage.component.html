@@ -1,0 +1,77 @@
+<div class="homepage" [class.details]="propertyDetails" [style.height]="height + 'px'">
+  <div *ngIf="!propertyDetails" class="column center">
+    <div class="logo row center">
+      <span [style.color]="'#4285f4'">B</span>
+      <span [style.color]="'#ea4335'">r</span>
+      <span [style.color]="'#fbbc05'">o</span>
+      <span [style.color]="'#4eb46a'">w</span>
+      <span [style.color]="'#4285f4'">s</span>
+      <span [style.color]="'#ea4335'">e</span>
+      <span [style.color]="'#4eb46a'">r</span>
+      &nbsp;
+      <span [style.color]="'#4285f4'">O</span>
+      <span [style.color]="'#ea4335'">b</span>
+      <span [style.color]="'#fbbc05'">j</span>
+      <span [style.color]="'#4eb46a'">e</span>
+      <span [style.color]="'#4285f4'">c</span>
+      <span [style.color]="'#ea4335'">t</span>
+      <span [style.color]="'#4eb46a'">s</span>
+    </div>
+    <app-searchbar></app-searchbar>
+  </div>
+  <div *ngIf="propertyDetails" class="details-page">
+    <div class="results">results found for {{propertyDetails.bo_name}}</div>
+    <div *ngIf="!propertyDetails.bo_description">
+      <div class="header">NEED TO ADD DESCRIPTION AND OTHER DATA</div>
+    </div>
+    <div *ngIf="propertyDetails.bo_description">
+      <div class="header">Definition and Usage</div>
+      <div class="content" [innerHtml]="propertyDetails.bo_description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</div>
+    </div>
+    <div *ngIf="propertyDetails.bo_coverage" class="table">
+      <div class="header">Browser Support</div>
+      <div class="row1 row">
+        <div>Method</div>
+        <div>Chrome</div>
+        <div>Firefox</div>
+        <div>Internet Explorer</div>
+        <div>Safari</div>
+        <div>Opera</div>
+      </div>
+      <div class="row2 row">
+        <div>FakeMethod()</div>
+        <div>Yes</div>
+        <div>Yes</div>
+        <div>Yes</div>
+        <div>Yes</div>
+        <div>Yes</div>
+      </div>
+    </div>
+    <div *ngIf="propertyDetails.bo_parameters && propertyDetails.bo_parameters.length > 0">
+      <div *ngFor="let param of propertyDetails.bo_parameters">
+        <div class="header">Parameter {{param.name}}&nbsp;<span *ngIf="param.type">({{param.type}})</span></div>
+        <div class="content" [innerHtml]="param.description">if it has these, then need to describe each (parameter name, type, description)</div>
+      </div>
+    </div>
+    <div *ngIf="propertyDetails.bo_methods">
+      <div *ngFor="let method of propertyDetails.bo_methods">
+        <div class="header">Object Method {{method.name}}</div>
+        <div class="content">if it has these, then need to describe each (parameter name, type, description)</div>
+      </div>
+    </div>
+    <div *ngIf="propertyDetails.bo_examples">
+      <div class="header">Examples</div>
+      <div class="content">maybe a code sample or maybe a description of things you could use this with</div>
+    </div>
+    <div *ngIf="propertyDetails.bo_notes">
+      <div class="header">Additional Notes</div>
+      <div class="content" [innerHtml]="propertyDetails.bo_notes">if it has these, then need to describe each (parameter name, type, description)</div>
+    </div>
+    <div *ngIf="propertyDetails.bo_see_also">
+      <div class="header">Also See</div>
+      <ul>
+        <li *ngFor="let link of propertyDetails.bo_see_also" [innerHtml]="link"></li>
+      </ul>
+    </div>
+  </div>
+</div>

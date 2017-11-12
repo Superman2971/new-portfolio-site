@@ -1,0 +1,40 @@
+.object-tier {
+  color: rgba(0, 0, 0, 0.87);
+  font-family: 'Arimo', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  padding-left: 16px;
+
+  .row {
+    padding: 2px 0;
+    position: relative;
+
+    &.drop {
+      cursor: pointer;
+    }
+  }
+
+  .purple {
+    color: #882baf;
+
+    &.window {
+      color: rgba(0, 0, 0, 0.87);
+    }
+  }
+
+  .drop-arrow {
+    fill: rgba(0, 0, 0, 0.54);
+    height: 24px;
+    left: -24px;
+    min-width: 24px;
+    position: absolute;
+    top: -2px;
+    transform: scale(0.75);
+    transition: 0.3s;
+    width: 30px;
+
+    &.open {
+      transform: scale(0.75) rotate(90deg);
+    }
+  }
+}

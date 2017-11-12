@@ -1,0 +1,93 @@
+.navbar {
+  align-items: center;
+  height: 56px;
+  justify-content: flex-end;
+  width: 100%;
+
+  &.details {
+    background-color: #fafafa;
+    border-bottom: 1px solid #ebebeb;
+
+    .searchbar {
+      left: 16px;
+      height: 44px;
+      position: absolute;
+      top: 6px;
+
+      .logo {
+        cursor: pointer;
+        font-family: 'NTR', sans-serif;
+        font-size: 40px;
+        margin-right: 16px;
+        overflow: hidden;
+      }
+    }
+
+    @media (max-width: 456px) {
+      a {
+        display: none;
+      }
+
+      .image-container {
+        display: none;
+      }
+    }
+  }
+
+  a {
+    color: rgba(0, 0, 0, 54);
+    cursor: pointer;
+    font-size: 12px;
+    padding-left: 16px;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .image-container {
+    cursor: pointer;
+    height: 32px;
+    margin: 0 16px;
+    position: relative;
+    width: 32px;
+
+    span {
+      background-image: url(https://lh3.googleusercontent.com/-EpGbaR_vUR0/AAAAAAAAAAI/AAAAAAAAAAA/AAyYBF6EiKOKZabldrkVJlUcJxFriO4cFA/s32-c-mo/photo.jpg);
+      -webkit-background-size: 32px 32px;
+      background-size: 32px 32px;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+      display: block;
+      overflow: hidden;
+      position: relative;
+      height: 32px;
+      width: 32px;
+      z-index: 1;
+    }
+
+    .about-me {
+      background-color: #fafafa;
+      border: 1px solid rgba(0, 0, 0, 0.24);
+      border-radius: 4px;
+      color: rgba(0, 0, 0, 54);
+      font-size: 16px;
+      padding: 8px;
+      position: absolute;
+      right: 0;
+      top: 40px;
+      width: 196px;
+
+      a {
+        font-size: 16px;
+        padding-left: 4px;
+      }
+
+      .blue {
+        color: #4285f4;
+        padding-top: 4px;
+      }
+    }
+  }
+}
