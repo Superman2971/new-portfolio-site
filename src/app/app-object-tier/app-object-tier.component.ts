@@ -9,10 +9,10 @@ import { AppBroadcaster } from '../services/app-broadcaster.service';
 export class AppObjectTierComponent {
   @Input() tier;
 
-  constructor(private AppBroadcaster:AppBroadcaster) {}
+  constructor(private AppBroadcaster: AppBroadcaster) {}
 
   selectProperty(key, value) {
-    if (value.ig_description) {
+    if (value.ig_information) {
       let sendObject = {
         key: key,
         value: value

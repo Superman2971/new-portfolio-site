@@ -19,7 +19,7 @@ export class AppDevtoolsComponent implements OnInit {
   height: number;
   yStart = 0;
   notSetYet = true;
-  top = 312;
+  top = 412;
   welcome = [''];
   welcomeText = [
     'Welcome to Ian Goldfarb.co',
@@ -34,7 +34,7 @@ export class AppDevtoolsComponent implements OnInit {
     private renderer: Renderer2,
     private dataService: DataService
   ) {
-    this.height = winRef.window.innerHeight - 368;
+    this.height = winRef.window.innerHeight - 468;
     this.registerSubscribe();
   }
 
@@ -47,7 +47,6 @@ export class AppDevtoolsComponent implements OnInit {
       this.typeWriter(0, this.welcomeText[index], 100, index);
     } else if (this.activeWelcome) {
       this.browserObject = this.dataService.data;
-      console.log(this.browserObject);
     }
   }
 
@@ -72,10 +71,21 @@ export class AppDevtoolsComponent implements OnInit {
         this.browserObject = this.dataService.data;
       } else if (typeof(objectLink) === 'string') {
         this.browserObject = this.dataService.data.ian[objectLink];
+        this.selectProperty(objectLink, this.dataService.data.ian[objectLink]);
       } else {
         this.browserObject = undefined;
       }
     });
+  }
+
+  selectProperty(key, value) {
+    if (value.ig_information) {
+      let sendObject = {
+        key: key,
+        value: value
+      };
+      this.AppBroadcaster.fire('propertySelected', sendObject);
+    }
   }
 
   changeFilterType(newFilter) {
@@ -89,8 +99,8 @@ export class AppDevtoolsComponent implements OnInit {
           this.yStart = event.clientY;
           this.notSetYet = false;
         }
-        this.height = this.winRef.window.innerHeight - 368 - (event.clientY - this.yStart);
-        this.top = 312 - (this.yStart - event.clientY);
+        this.height = this.winRef.window.innerHeight - 468 - (event.clientY - this.yStart);
+        this.top = 412 - (this.yStart - event.clientY);
         this.AppBroadcaster.fire('heightChange', this.top);
       });
     }

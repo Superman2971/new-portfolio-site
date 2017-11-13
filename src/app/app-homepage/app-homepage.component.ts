@@ -9,7 +9,7 @@ import { AppBroadcaster } from '../services/app-broadcaster.service';
 export class AppHomepageComponent {
   propertyName: any;
   propertyDetails: any;
-  height = 256;
+  height = 456;
   @Input() set details(details: any) {
     if (details) {
       this.propertyName = details.key;

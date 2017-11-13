@@ -3,6 +3,7 @@
   position: fixed;
   left: 0;
   width: 100vw;
+  z-index: 1;
 
   .tabs {
     background-color: rgba(0, 0, 0, 0.03);
@@ -125,8 +126,8 @@
   }
 
   .console {
-    font-family: 'Arimo', sans-serif;
-    font-size: 12px;
+    font-family: 'Inconsolata', sans-serif;
+    font-size: 13px;
     overflow: scroll;
     padding: 8px 8px 8px 32px;
     position: relative;
