@@ -10,11 +10,11 @@ export class AppSearchbarComponent {
   @Input() navbar;
   objects = [{
     text: 'About Me',
-    progress: 'in progress',
+    progress: 'currently in progress',
     link: 'about'
   }, {
     text: 'Resume',
-    progress: 'last updated XX/XX/17',
+    progress: 'last updated 10/01/17',
     link: 'resume'
   }, {
     text: 'Projects',

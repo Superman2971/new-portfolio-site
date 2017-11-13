@@ -9,7 +9,7 @@ import { AppBroadcaster } from '../services/app-broadcaster.service';
 export class AppHomepageComponent {
   propertyName: any;
   propertyDetails: any;
-  height = 456;
+  height = 356;
   @Input() set details(details: any) {
     if (details) {
       this.propertyName = details.key;
@@ -20,12 +20,12 @@ export class AppHomepageComponent {
     }
   }
 
-  constructor(private AppBroadcaster:AppBroadcaster) {
+  constructor(private AppBroadcaster: AppBroadcaster) {
     this.registerSubscribe();
   }
 
   registerSubscribe() {
-    this.AppBroadcaster.on('heightChange').subscribe((newheight:number) => {
+    this.AppBroadcaster.on('heightChange').subscribe((newheight: number) => {
       this.height = newheight - 56;
     });
   }

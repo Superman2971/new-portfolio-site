@@ -22,11 +22,18 @@ export class DataService {
       content: `Working as the lead for our front-end development. Fully developed the e-commerce front-end from deployment,
        services, filters, components, API integrations, etc. Covering everything from search to checkout.
        Currently converting and updating our site from AngularJS to Angular.`
+    }, {
+      header: 'Skills, Languages, Frameworks',
+      content: `Primarily a front-end developer using HTML5, CSS3, and Javascript/Typescript.
+       Current frameworks used on production websites are AngularJS and Angular.
+       Have experience with API integration, working with 3rd party libraries, and managing website architecture.
+       Completely capable of any project, but would like and may need to continue my education and learn more.`
     }]
   };
 
   projects = {
-    'ig_display': '{<span class=\'pink\'>sample</span>: website, <span class=\'pink\'>Other</span>: website…}',
+    'ig_display': `{websites: <span class=\'red\'>SupplyHub</span>,
+     <span class=\'red\'>Sh-Dash-Demo</span>, <span class=\'red\'>Sh-Front-End-Demo</span>…}`,
     'ig_name': 'Recent Projects',
     'ig_propertyType': 'object',
     'first': {
@@ -34,6 +41,7 @@ export class DataService {
       'ig_name': 'SupplyHub.com',
       'ig_propertyType': 'object',
       'technology': {
+        'ig_opened': true,
         'ig_display': '<span class=\'red\'>Technology</span>',
         'ig_name': 'Includes',
         'ig_propertyType': 'object',
@@ -69,6 +77,7 @@ export class DataService {
       'ig_name': 'Dashboard Demo',
       'ig_propertyType': 'object',
       'technology': {
+        'ig_opened': true,
         'ig_display': '<span class=\'red\'>Technology</span>',
         'ig_name': 'Includes',
         'ig_propertyType': 'object',
@@ -95,6 +104,7 @@ export class DataService {
       'ig_name': 'Front-end Demo',
       'ig_propertyType': 'object',
       'technology': {
+        'ig_opened': true,
         'ig_display': '<span class=\'red\'>Technology</span>',
         'ig_name': 'Includes',
         'ig_propertyType': 'object',
@@ -144,9 +154,56 @@ export class DataService {
       'ig_name': 'Resume',
       'ig_propertyType': 'property'
     },
+    'supplyhub': {
+      'ig_display': '<span class=\'red\'>Front-End Software Engineer</span> 2015-Present',
+      'ig_name': 'SupplyHub',
+      'ig_propertyType': 'property'
+    },
+    'google': {
+      'ig_display': '<span class=\'red\'>Project Manager</span> 2014-15',
+      'ig_name': 'Google',
+      'ig_propertyType': 'property'
+    },
+    'nwe': {
+      'ig_display': '<span class=\'red\'>Digital Project Manager</span> 2013-14',
+      'ig_name': 'New Wave Entertainment',
+      'ig_propertyType': 'property'
+    },
+    'petrol': {
+      'ig_display': '<span class=\'red\'>Project Manager</span> 2011-13',
+      'ig_name': 'Petrol Advertising',
+      'ig_propertyType': 'property'
+    },
     'ig_information': [{
-      header: 'Some Header',
-      content: 'Some content.'
+      header: 'Resume',
+      link: 'assets/IanGoldfarb_Resume.pdf',
+      content: 'A downloadable copy of my resume is available anytime.'
+    }, {
+      header: 'Work Experience - SupplyHub',
+      content: `
+      • Worked on a team of two engineers to produce a B2B marketplace for the lighting and electrical industry
+      <br/>• Built responsive, single-page, web application utilizing HTML, CSS, Javascript,
+       AngularJS, Angular Material, Jasmine, SinonJS, npm, REST, Gulp, Git, and various APIs
+      <br/>• Contributed nearly 100% of the front-end web application code using AngularJS as the framework
+      <br/>• Utilized and contributed to RESTful apis using NodeJS, Hapi, and Joi`
+    }, {
+      header: 'Work Experience - Google',
+      content: `
+      • Responsible for the overall planning, management and tracking of bespoke projects across an assigned portfolio of business
+      <br/>• Communicated risks and tracked projects’ efficiency making adjustments to scope and/or timing as needed
+      <br/>• Worked with cross functional team members to coordinate efforts and keep projects on track
+      <br/>• Prioritized and vetted incoming project requests according to risk, reward, and efficiency outcomes`
+    }, {
+      header: 'Education',
+      content: `University of Oregon - Charles H. Lundquist College of Business: Honors Bachelors of Science in Business Administration`
+    }, {
+      header: 'Interests and Accomplishments',
+      content: `
+      • Fitness Enthusiast: Tough Mudder, Weight Lifting, Running, SUP, and more
+      <br/>• Inventor: Cravings zero calorie chocolate, The B.E.E.R.S. Machine
+      <br/>• Author: Short stories, A young adult novel "Gnome Tales", Founder of the Golden Book Awards
+      <br/>• Political: Former Mayoral Candidate for city of Eugene, Oregon in 2008primary election,
+       Placed 3rd behind the incumbent and former incumbent`
     }]
   };
 
@@ -154,6 +211,11 @@ export class DataService {
     'ig_display': 'email: <span class=\'blue\'>goldfarb.ian@gmail.com</span>',
     'ig_name': 'Contact Information',
     'ig_propertyType': 'property',
+    'location': {
+      'ig_display': 'Los Angeles, CA',
+      'ig_name': 'location',
+      'ig_propertyType': 'property',
+    },
     'email': {
       'ig_display': '<a class=\'blue\' href="mailto:goldfarb.ian@gmail.com">goldfarb.ian@gmail.com</a>',
       'ig_name': 'email',
