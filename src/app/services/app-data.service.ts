@@ -33,7 +33,7 @@ export class DataService {
 
   projects = {
     'ig_display': `{websites: <span class=\'red\'>SupplyHub</span>,
-     <span class=\'red\'>Sh-Dash-Demo</span>, <span class=\'red\'>Sh-Front-End-Demo</span>…}`,
+     <span class=\'red\'>Sh-Dashboard-Demo</span>, <span class=\'red\'>Sh-Frontend-Demo</span>…}`,
     'ig_name': 'Recent Projects',
     'ig_propertyType': 'object',
     'first': {
@@ -73,7 +73,7 @@ export class DataService {
         }
       }
     }, 'second': {
-      'ig_display': 'website <span class=\'pink\'>sh-dash-demo.bitballoon.com</span>',
+      'ig_display': 'website <span class=\'pink\'>sh-dashboard-demo.bitballoon.com</span>',
       'ig_name': 'Dashboard Demo',
       'ig_propertyType': 'object',
       'technology': {
@@ -82,7 +82,7 @@ export class DataService {
         'ig_name': 'Includes',
         'ig_propertyType': 'object',
         'framework': {
-          'ig_display': '<span class=\'blue\'>Angular 2.2.3</span>',
+          'ig_display': '<span class=\'blue\'>Angular 2.2.3 --> upgraded to 5.2.9</span>',
           'ig_name': 'framework',
           'ig_propertyType': 'property'
         }, 'language': {
@@ -100,8 +100,8 @@ export class DataService {
         }
       }
     }, 'third': {
-      'ig_display': 'website <span class=\'pink\'>sh-front-end-demo.bitballoon.com</span>',
-      'ig_name': 'Front-end Demo',
+      'ig_display': 'website <span class=\'pink\'>sh-frontend-demo.bitballoon.com</span>',
+      'ig_name': 'Front-End Demo',
       'ig_propertyType': 'object',
       'technology': {
         'ig_opened': true,
@@ -109,7 +109,7 @@ export class DataService {
         'ig_name': 'Includes',
         'ig_propertyType': 'object',
         'framework': {
-          'ig_display': '<span class=\'blue\'>Angular 4.4.4</span>',
+          'ig_display': '<span class=\'blue\'>Angular 4.4.4 --> upgraded to 5.2.9</span>',
           'ig_name': 'framework',
           'ig_propertyType': 'property'
         }, 'language': {
@@ -133,13 +133,13 @@ export class DataService {
       content: `Join the global marketplace connecting buyers and distributors of wholesale durable goods.`,
       image: 'supplyhub.png'
     }, {
-      header: 'Sh-Dash-Demo',
-      link: 'http://sh-dash-demo.bitballoon.com/',
+      header: 'Sh-Dashboard-Demo',
+      link: 'http://sh-dashboard-demo.bitballoon.com/',
       content: `Simple customer control with analytics for orders, tracking shipments, inventory, and more.`,
       image: 'sh-dash-demo.png'
     }, {
-      header: 'Sh-Front-End-Demo',
-      link: 'http://sh-front-end-demo.bitballoon.com/',
+      header: 'Sh-Frontend-Demo',
+      link: 'http://sh-frontend-demo.bitballoon.com/',
       content: `In Development upgrade of the AngularJS SupplyHub e-commerce into a new Angular site.`,
       image: 'sh-front-end-demo.png'
     }]
