@@ -1,19 +1,19 @@
 <div class="object-tier" *ngFor="let property of tier | properties">
   <!-- row for property -->
-  <div *ngIf="tier[property].ig_name && tier[property].ig_propertyType === 'property'" class="row" (click)="selectProperty(property, tier[property])">
-    <div class="purple" [innerHtml]="tier[property].ig_name"></div>
+  <div *ngIf="tier[property].name && tier[property].propertytype === 'property'" class="row" (click)="selectProperty(property, tier[property])">
+    <div class="purple" [innerHtml]="tier[property].name"></div>
     <span>:&nbsp;</span>
-    <div [innerHtml]="tier[property].ig_display"></div>
+    <div [innerHtml]="tier[property].display"></div>
   </div>
   <!-- row for dropdown -->
-  <div *ngIf="tier[property].ig_name && tier[property].ig_propertyType !== 'property'" class="drop row" (click)="selectProperty(property, tier[property]); tier[property].ig_opened = !tier[property].ig_opened">
-    <svg class="drop-arrow" [class.open]="tier[property].ig_opened">
+  <div *ngIf="tier[property].name && tier[property].propertytype !== 'property'" class="drop row" (click)="selectProperty(property, tier[property]); tier[property].opened = !tier[property].opened">
+    <svg class="drop-arrow" [class.open]="tier[property].opened">
       <path d="M8.016 5.016l10.969 6.984-10.969 6.984v-13.969z"></path>
     </svg>
-    <div class="purple" [innerHtml]="tier[property].ig_name"></div>
+    <div class="purple" [innerHtml]="tier[property].name"></div>
     <span>:&nbsp;</span>
-    <div [innerHtml]="tier[property].ig_display"></div>
+    <div [innerHtml]="tier[property].display"></div>
   </div>
   <!-- open new dropdown tier -->
-  <app-object-tier *ngIf="tier[property].ig_opened" [tier]="tier[property]"></app-object-tier>
+  <app-object-tier *ngIf="tier[property].opened" [tier]="tier[property]"></app-object-tier>
 </div>

@@ -17,8 +17,8 @@
     <app-searchbar></app-searchbar>
   </div>
   <div *ngIf="propertyDetails" class="details-page">
-    <div class="results">results found for {{propertyDetails.ig_name}}</div>
-    <div class="row" *ngFor="let info of propertyDetails.ig_information">
+    <div class="results">results found for {{propertyDetails.name}}</div>
+    <div class="row" *ngFor="let info of propertyDetails.information">
       <div *ngIf="info.image" class="image-container">
         <img src="assets/{{info.image}}" [alt]="info.header">
       </div>

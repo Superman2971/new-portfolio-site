@@ -1,18 +1,40 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Rx';
+
+@Injectable()
 export class DataService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
+  searchbar = [{
+    text: 'About Me',
+    progress: 'currently in progress',
+    link: 'about'
+  }, {
+    text: 'Resume',
+    progress: 'last updated 10/01/17',
+    link: 'resume'
+  }, {
+    text: 'Projects',
+    progress: 'some recent samples',
+    link: 'projects'
+  }, {
+    text: 'Contact',
+    progress: 'get in touch',
+    link: 'contact'
+  }];
 
   about = {
-    'ig_display': `{Specialty: <span class=\'pink\'>Front-End Development, Javascript, Angular</span>}`,
-    'ig_name': 'About Me',
-    'ig_notes': 'There is no public standard that applies to the Window object, but all major browsers support it.',
-    'ig_propertyType': 'property',
+    'display': `{Specialty: <span class=\'pink\'>Front-End Development, Javascript, Angular</span>}`,
+    'name': 'About Me',
+    'notes': 'There is no public standard that applies to the Window object, but all major browsers support it.',
+    'propertytype': 'property',
     'about': {
-      'ig_display': `{Specialty: <span class=\'pink\'>Front-End Development, Javascript, Angular</span>}`,
-      'ig_name': 'About Me',
-      'ig_notes': 'There is no public standard that applies to the Window object, but all major browsers support it.',
-      'ig_propertyType': 'property'
+      'display': `{Specialty: <span class=\'pink\'>Front-End Development, Javascript, Angular</span>}`,
+      'name': 'About Me',
+      'notes': 'There is no public standard that applies to the Window object, but all major browsers support it.',
+      'propertytype': 'property'
     },
-    'ig_information': [{
+    'information': [{
       header: 'Work Experience',
       content: `Driven to create cutting edge interactive applications. I've been working professionally in digital
        development for over 8 years and I'm always ready to tackle a new challenge. From Project Management to Full
@@ -32,102 +54,102 @@ export class DataService {
   };
 
   projects = {
-    'ig_display': `{websites: <span class=\'red\'>SupplyHub</span>,
+    'display': `{websites: <span class=\'red\'>SupplyHub</span>,
      <span class=\'red\'>Sh-Dashboard-Demo</span>, <span class=\'red\'>Sh-Frontend-Demo</span>…}`,
-    'ig_name': 'Recent Projects',
-    'ig_propertyType': 'object',
+    'name': 'Recent Projects',
+    'propertytype': 'object',
     'first': {
-      'ig_display': 'website <span class=\'pink\'>SupplyHub.com</span>',
-      'ig_name': 'SupplyHub.com',
-      'ig_propertyType': 'object',
+      'display': 'website <span class=\'pink\'>SupplyHub.com</span>',
+      'name': 'SupplyHub.com',
+      'propertytype': 'object',
       'technology': {
-        'ig_opened': true,
-        'ig_display': '<span class=\'red\'>Technology</span>',
-        'ig_name': 'Includes',
-        'ig_propertyType': 'object',
+        'opened': true,
+        'display': '<span class=\'red\'>Technology</span>',
+        'name': 'Includes',
+        'propertytype': 'object',
         'framework': {
-          'ig_display': '<span class=\'blue\'>AngularJS 1.5.10</span>',
-          'ig_name': 'framework',
-          'ig_propertyType': 'property'
+          'display': '<span class=\'blue\'>AngularJS 1.5.10</span>',
+          'name': 'framework',
+          'propertytype': 'property'
         }, 'language': {
-          'ig_display': '<span class=\'blue\'>Javascript</span>',
-          'ig_name': 'language',
-          'ig_propertyType': 'property'
+          'display': '<span class=\'blue\'>Javascript</span>',
+          'name': 'language',
+          'propertytype': 'property'
         }, 'testing': {
-          'ig_display': `<span class=\'blue\'>Karma</span>, <span class=\'blue\'>Sinon</span>, <span class=\'blue\'>Chai</span>`,
-          'ig_name': 'testing',
-          'ig_propertyType': 'property'
+          'display': `<span class=\'blue\'>Karma</span>, <span class=\'blue\'>Sinon</span>, <span class=\'blue\'>Chai</span>`,
+          'name': 'testing',
+          'propertytype': 'property'
         }, 'deployment': {
-          'ig_display': '<span class=\'blue\'>Gulp w/ Dock Containers</span>',
-          'ig_name': 'deployment',
-          'ig_propertyType': 'property'
+          'display': '<span class=\'blue\'>Gulp w/ Dock Containers</span>',
+          'name': 'deployment',
+          'propertytype': 'property'
         }, 'library': {
-          'ig_display': '<span class=\'blue\'>Angular Material</span>',
-          'ig_name': 'library',
-          'ig_propertyType': 'property'
+          'display': '<span class=\'blue\'>Angular Material</span>',
+          'name': 'library',
+          'propertytype': 'property'
         }, '3rdParties': {
-          'ig_display': `<span class=\'blue\'>Amazon</span>, <span class=\'blue\'>Stripe</span>,
+          'display': `<span class=\'blue\'>Amazon</span>, <span class=\'blue\'>Stripe</span>,
            <span class=\'blue\'>Google Analytics</span>, <span class=\'blue\'>SwiperJS</span>`,
-          'ig_name': '3rd Parties',
-          'ig_propertyType': 'property'
+          'name': '3rd Parties',
+          'propertytype': 'property'
         }
       }
     }, 'second': {
-      'ig_display': 'website <span class=\'pink\'>sh-dashboard-demo.bitballoon.com</span>',
-      'ig_name': 'Dashboard Demo',
-      'ig_propertyType': 'object',
+      'display': 'website <span class=\'pink\'>sh-dashboard-demo.bitballoon.com</span>',
+      'name': 'Dashboard Demo',
+      'propertytype': 'object',
       'technology': {
-        'ig_opened': true,
-        'ig_display': '<span class=\'red\'>Technology</span>',
-        'ig_name': 'Includes',
-        'ig_propertyType': 'object',
+        'opened': true,
+        'display': '<span class=\'red\'>Technology</span>',
+        'name': 'Includes',
+        'propertytype': 'object',
         'framework': {
-          'ig_display': '<span class=\'blue\'>Angular 2.2.3 --> upgraded to 5.2.9</span>',
-          'ig_name': 'framework',
-          'ig_propertyType': 'property'
+          'display': '<span class=\'blue\'>Angular 2.2.3 --> upgraded to 5.2.9</span>',
+          'name': 'framework',
+          'propertytype': 'property'
         }, 'language': {
-          'ig_display': '<span class=\'blue\'>Typescript</span>',
-          'ig_name': 'language',
-          'ig_propertyType': 'property'
+          'display': '<span class=\'blue\'>Typescript</span>',
+          'name': 'language',
+          'propertytype': 'property'
         }, 'deployment': {
-          'ig_display': '<span class=\'blue\'>Angular CLI w/ webpack</span>',
-          'ig_name': 'deployment',
-          'ig_propertyType': 'property'
+          'display': '<span class=\'blue\'>Angular CLI w/ webpack</span>',
+          'name': 'deployment',
+          'propertytype': 'property'
         }, 'charts': {
-          'ig_display': '<span class=\'blue\'>Custom Designed Graphs using Highcart.js</span>',
-          'ig_name': 'charts',
-          'ig_propertyType': 'property'
+          'display': '<span class=\'blue\'>Custom Designed Graphs using Highcart.js</span>',
+          'name': 'charts',
+          'propertytype': 'property'
         }
       }
     }, 'third': {
-      'ig_display': 'website <span class=\'pink\'>sh-frontend-demo.bitballoon.com</span>',
-      'ig_name': 'Front-End Demo',
-      'ig_propertyType': 'object',
+      'display': 'website <span class=\'pink\'>sh-frontend-demo.bitballoon.com</span>',
+      'name': 'Front-End Demo',
+      'propertytype': 'object',
       'technology': {
-        'ig_opened': true,
-        'ig_display': '<span class=\'red\'>Technology</span>',
-        'ig_name': 'Includes',
-        'ig_propertyType': 'object',
+        'opened': true,
+        'display': '<span class=\'red\'>Technology</span>',
+        'name': 'Includes',
+        'propertytype': 'object',
         'framework': {
-          'ig_display': '<span class=\'blue\'>Angular 4.4.4 --> upgraded to 5.2.9</span>',
-          'ig_name': 'framework',
-          'ig_propertyType': 'property'
+          'display': '<span class=\'blue\'>Angular 4.4.4 --> upgraded to 5.2.9</span>',
+          'name': 'framework',
+          'propertytype': 'property'
         }, 'language': {
-          'ig_display': '<span class=\'blue\'>Typescript</span>',
-          'ig_name': 'language',
-          'ig_propertyType': 'property'
+          'display': '<span class=\'blue\'>Typescript</span>',
+          'name': 'language',
+          'propertytype': 'property'
         }, 'deployment': {
-          'ig_display': '<span class=\'blue\'>Angular CLI w/ customized webpack</span>',
-          'ig_name': 'deployment',
-          'ig_propertyType': 'property'
+          'display': '<span class=\'blue\'>Angular CLI w/ customized webpack</span>',
+          'name': 'deployment',
+          'propertytype': 'property'
         }, 'http': {
-          'ig_display': '<span class=\'blue\'>Http integration with node REST APIs</span>',
-          'ig_name': 'http integrations',
-          'ig_propertyType': 'property'
+          'display': '<span class=\'blue\'>Http integration with node REST APIs</span>',
+          'name': 'http integrations',
+          'propertytype': 'property'
         }
       }
     },
-    'ig_information': [{
+    'information': [{
       header: 'SupplyHub',
       link: 'https://www.supplyhub.com/',
       content: `Join the global marketplace connecting buyers and distributors of wholesale durable goods.`,
@@ -146,35 +168,35 @@ export class DataService {
   };
 
   resume = {
-    'ig_display': 'PDF: <a class=\'blue\' target="_blank" href="assets/IanGoldfarb_Resume.pdf">IanGoldfarb_Resume.pdf</a>',
-    'ig_name': 'Resume',
-    'ig_propertyType': 'property',
+    'display': 'PDF: <a class=\'blue\' target="_blank" href="assets/IanGoldfarb_Resume.pdf">IanGoldfarb_Resume.pdf</a>',
+    'name': 'Resume',
+    'propertytype': 'property',
     'resume': {
-      'ig_display': 'PDF: <a class=\'blue\' target="_blank" href="assets/IanGoldfarb_Resume.pdf">IanGoldfarb_Resume.pdf</a>',
-      'ig_name': 'Resume',
-      'ig_propertyType': 'property'
+      'display': 'PDF: <a class=\'blue\' target="_blank" href="assets/IanGoldfarb_Resume.pdf">IanGoldfarb_Resume.pdf</a>',
+      'name': 'Resume',
+      'propertytype': 'property'
     },
     'supplyhub': {
-      'ig_display': '<span class=\'red\'>Front-End Software Engineer</span> 2015-Present',
-      'ig_name': 'SupplyHub',
-      'ig_propertyType': 'property'
+      'display': '<span class=\'red\'>Front-End Software Engineer</span> 2015-Present',
+      'name': 'SupplyHub',
+      'propertytype': 'property'
     },
     'google': {
-      'ig_display': '<span class=\'red\'>Project Manager</span> 2014-15',
-      'ig_name': 'Google',
-      'ig_propertyType': 'property'
+      'display': '<span class=\'red\'>Project Manager</span> 2014-15',
+      'name': 'Google',
+      'propertytype': 'property'
     },
     'nwe': {
-      'ig_display': '<span class=\'red\'>Digital Project Manager</span> 2013-14',
-      'ig_name': 'New Wave Entertainment',
-      'ig_propertyType': 'property'
+      'display': '<span class=\'red\'>Digital Project Manager</span> 2013-14',
+      'name': 'New Wave Entertainment',
+      'propertytype': 'property'
     },
     'petrol': {
-      'ig_display': '<span class=\'red\'>Project Manager</span> 2011-13',
-      'ig_name': 'Petrol Advertising',
-      'ig_propertyType': 'property'
+      'display': '<span class=\'red\'>Project Manager</span> 2011-13',
+      'name': 'Petrol Advertising',
+      'propertytype': 'property'
     },
-    'ig_information': [{
+    'information': [{
       header: 'Resume',
       link: 'assets/IanGoldfarb_Resume.pdf',
       content: 'A downloadable copy of my resume is available anytime.'
@@ -208,31 +230,31 @@ export class DataService {
   };
 
   contact = {
-    'ig_display': 'email: <span class=\'blue\'>goldfarb.ian@gmail.com</span>',
-    'ig_name': 'Contact Information',
-    'ig_propertyType': 'property',
+    'display': 'email: <span class=\'blue\'>goldfarb.ian@gmail.com</span>',
+    'name': 'Contact Information',
+    'propertytype': 'property',
     'location': {
-      'ig_display': 'Los Angeles, CA',
-      'ig_name': 'location',
-      'ig_propertyType': 'property',
+      'display': 'Los Angeles, CA',
+      'name': 'location',
+      'propertytype': 'property',
     },
     'email': {
-      'ig_display': '<a class=\'blue\' href="mailto:goldfarb.ian@gmail.com">goldfarb.ian@gmail.com</a>',
-      'ig_name': 'email',
-      'ig_propertyType': 'property',
+      'display': '<a class=\'blue\' href="mailto:goldfarb.ian@gmail.com">goldfarb.ian@gmail.com</a>',
+      'name': 'email',
+      'propertytype': 'property',
     },
     'github': {
-      'ig_display': '<a class=\'blue\' target="_blank" href="https://github.com/superman2971/">https://github.com/superman2971/</a>',
-      'ig_name': 'GitHub',
-      'ig_propertyType': 'property',
+      'display': '<a class=\'blue\' target="_blank" href="https://github.com/superman2971/">https://github.com/superman2971/</a>',
+      'name': 'GitHub',
+      'propertytype': 'property',
     },
     'linkedin': {
-      'ig_display': `<a class=\'blue\' target="_blank" href="https://www.linkedin.com/in/ian-goldfarb-2491a45/">
+      'display': `<a class=\'blue\' target="_blank" href="https://www.linkedin.com/in/ian-goldfarb-2491a45/">
       https://www.linkedin.com/in/ian-goldfarb-2491a45/</a>`,
-      'ig_name': 'LinkedIn',
-      'ig_propertyType': 'property',
+      'name': 'LinkedIn',
+      'propertytype': 'property',
     },
-    'ig_information': [{
+    'information': [{
       header: 'Want to Get in Touch',
       content: `Feel free to reach out to me anytime at
        <a href="mailto:goldfarb.ian@gmail.com">goldfarb.ian@gmail.com</a>.`
@@ -249,13 +271,23 @@ export class DataService {
 
   data = {
     ian: {
-      'ig_display': 'Informational Object',
-      'ig_name': 'Ian Goldfarb',
-      'ig_propertyType': 'object',
+      'display': 'Informational Object',
+      'name': 'Ian Goldfarb',
+      'propertytype': 'object',
       'about': this.about,
       'resume': this.resume,
       'projects': this.projects,
       'contact': this.contact
     }
   };
+
+  public getGoogleSheetData(): Observable<any> {
+    // tslint:disable-next-line
+    return this.http.get('https://spreadsheets.google.com/feeds/list/1VjOWGfnpGrVMFykG12Cghgm7K3rYz4A6YVJ2dRtlTwQ/3/public/values?alt=json');
+  }
+
+  public getSearchbarData(): Observable<any> {
+    // tslint:disable-next-line
+    return this.http.get('https://spreadsheets.google.com/feeds/list/1VjOWGfnpGrVMFykG12Cghgm7K3rYz4A6YVJ2dRtlTwQ/4/public/values?alt=json');
+  }
 }

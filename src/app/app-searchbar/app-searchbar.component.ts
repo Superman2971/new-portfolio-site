@@ -1,5 +1,6 @@
 import { Component, ElementRef, Renderer2, Input } from '@angular/core';
 import { AppBroadcaster } from '../services/app-broadcaster.service';
+import { DataService } from '../services/app-data.service';
 
 @Component({
   selector: 'app-searchbar',
@@ -8,23 +9,7 @@ import { AppBroadcaster } from '../services/app-broadcaster.service';
 })
 export class AppSearchbarComponent {
   @Input() navbar;
-  objects = [{
-    text: 'About Me',
-    progress: 'currently in progress',
-    link: 'about'
-  }, {
-    text: 'Resume',
-    progress: 'last updated 10/01/17',
-    link: 'resume'
-  }, {
-    text: 'Projects',
-    progress: 'some recent samples',
-    link: 'projects'
-  }, {
-    text: 'Contact',
-    progress: 'get in touch',
-    link: 'contact'
-  }];
+  objects: Array<any>;
   searchText: string;
   placeholder: string;
   showDropdown = false;
@@ -32,14 +17,34 @@ export class AppSearchbarComponent {
   constructor(
     public elem: ElementRef,
     private renderer: Renderer2,
-    private AppBroadcaster: AppBroadcaster
+    private AppBroadcaster: AppBroadcaster,
+    private dataService: DataService
   ) {
+    this.objects = this.dataService.searchbar;
     renderer.listen('document', 'click', (event: any) => {
       if (this.showDropdown && event.target && this.elem.nativeElement !== event.target &&
       !this.elem.nativeElement.contains(event.target)) {
         this.showDropdown = false;
       }
     });
+    // get searchbar text data from Google Sheet
+    this.dataService.getSearchbarData().subscribe((rawData: any) => {
+      this.objects = this.formatData(rawData.feed.entry);
+    });
+  }
+
+  formatData(data) {
+    const returnArray = data.map((object) => {
+      let correctedKeys = {};
+      Object.keys(object).forEach(key => {
+        if (key.includes('gsx$')) {
+          let newKey = key.replace('gsx$', '');
+          correctedKeys[newKey] = object[key].$t;
+        }
+      });
+      return correctedKeys;
+    });
+    return returnArray;
   }
 
   selectOption = option => {
